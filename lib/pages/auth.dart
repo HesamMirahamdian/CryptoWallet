@@ -29,15 +29,32 @@ class _AuthState extends State<Auth> {
                     phone: phoneNumberCon.text,
                   )));
     } else {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => Otp(
-                    phone: phoneNumberCon.text,
-                  )));
+       showDialog(
+              context: context,
+              builder: (BuildContext context) => _buildPopupDialog(context));
     }
   }
-
+Widget _buildPopupDialog(BuildContext context) {
+  return new AlertDialog(
+    title: const Text('خطای ورود'),
+    content: new Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text("شماره تلفن اشتباه می باشد"),
+      ],
+    ),
+    actions: <Widget>[
+      new FlatButton(
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+        textColor: Theme.of(context).primaryColor,
+        child: const Text('باشه'),
+      ),
+    ],
+  );
+}
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;

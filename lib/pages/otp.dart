@@ -118,7 +118,7 @@ class _State extends State<Otp> {
                               key: formKey,
                               child: Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      vertical: 0, horizontal: 80),
+                                      vertical: 0, horizontal: 50),
                                   child: PinCodeTextField(
                                     appContext: context,
                                     pastedTextStyle: TextStyle(
@@ -128,7 +128,7 @@ class _State extends State<Otp> {
                                     textStyle: TextStyle(
                                       color: mainColor,
                                     ),
-                                    length: 4,
+                                    length: 6,
                                     blinkWhenObscuring: true,
                                     animationType: AnimationType.fade,
                                     pinTheme: PinTheme(
@@ -137,8 +137,8 @@ class _State extends State<Otp> {
                                       borderRadius: BorderRadius.circular(5),
                                       selectedFillColor: bg,
                                       selectedColor: mainColor,
-                                      fieldHeight: 60,
-                                      fieldWidth: 50,
+                                      fieldHeight: 50,
+                                      fieldWidth: 40,
                                       inactiveFillColor: bg,
                                       inactiveColor: mainColor,
                                       activeFillColor:
@@ -182,7 +182,7 @@ class _State extends State<Otp> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 10),
                               child: Text(
-                                hasError ? "لطفا کد ارسال شده را وارد" : "",
+                                hasError ? "لطفا کد ارسال شده را وارد کنید" : "",
                                 style: TextStyle(
                                     color: Colors.red,
                                     fontSize: 12,
@@ -198,8 +198,8 @@ class _State extends State<Otp> {
                                   onPressed: () {
                                     formKey.currentState!.validate();
                                     // conditions for validating
-                                    if (currentText.length != 4 ||
-                                        currentText != "1234") {
+                                    if (currentText.length != 6 ||
+                                        currentText != "123456") {
                                       errorController!.add(ErrorAnimationType
                                           .shake); // Triggering error shake animation
                                       setState(() {
