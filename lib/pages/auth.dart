@@ -22,12 +22,16 @@ class _AuthState extends State<Auth> {
     var path = 'http://localhost:3000/register';
     var res = await dio.post(path, data: data);
     if (res.statusCode == 200) {
+      print(phone);
+
+      // This is Changed
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => Otp(
+              builder: (context) => SignUpPage(
                     phone: phoneNumberCon.text,
                   )));
+                  //****
     } else {
        showDialog(
               context: context,
